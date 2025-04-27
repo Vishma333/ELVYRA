@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Only Transport System - ELVYRA</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #f0f0f0; /* Fallback background color */
+        }
+
+        img {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            opacity: 0; /* Initially hidden */
+            transition: opacity 1s ease-in-out; /* Fade-in animation */
+        }
+
+        /* Optional: Add a loading indicator */
+        #loading-indicator {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            color: #555;
+            z-index: 10; /* Ensure it's on top */
+        }
+
+        /* Hide the loading indicator once the image loads */
+        img.loaded + #loading-indicator {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <img id="elvyra-map" src="https://media-hosting.imagekit.io//bbb09181792f4d47/Elvyra%20map.png?Expires=1834800430&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=tWe9idMtRXErZRR8U8VeITKCr7mAOJNTzuWMC03A8u0v73W4VZGlL0MgIYYA1jvCqzg5qSMRDWO5w0FcumcTM4fDA~PEFtkIfp2F1lI64V9-hgUDxT8ER~6Lrc25eTOZm09t8CIt-Qs~P4ZmxQ1VFQvTArXc8Twahf84I3NdIcVoe-SyrsGvGAnYlHWrVLi-eFCQXz03iOtYa4kDyNp-7DiVGvBfDbq5HaoXjbyHN5Nu1lejQ8bZOwr3u5nZwII6rCrQ6ayf4dzCHYQ7ZwWDfjyn5I0Gxlzfum-C6zix5xjaJRMupJFLGRLJO4hZYzULheSg6HO~~TF4vyw~qRmWUg__" alt="Elvyra Map">
+    <div id="loading-indicator">Loading...</div>
+
+    <script>
+        const img = document.getElementById('elvyra-map');
+
+        img.onload = function() {
+            img.classList.add('loaded'); // Add a class to signal loading completion
+            img.style.opacity = 1; // Fade in the image
+        };
+
+        img.onerror = function() {
+            console.error('Failed to load image.');
+            document.getElementById('loading-indicator').textContent = 'Failed to load image.'; //update loading text
+        };
+    </script>
+</body>
+</html>
